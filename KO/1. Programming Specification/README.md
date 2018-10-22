@@ -37,7 +37,7 @@
 
 11\. **[추천]**  만약 **디자인 패턴**을 사용한다면, 해당 패턴명을 클래스명에 포함시킬 수 있다.  
  > <font color="#019858">예시: </font>`public class OrderFactory;  `
-`public class LoginProxy;`  `public class ResourceObserver;`  단순한 코드를 위해 interface 내 method 에는 `public`을 포함한 접근 제어자를 붙이지 않는다
+`public class LoginProxy;`  `public class ResourceObserver;`  
 > <font color="#977C00">Note: </font> 사용한 패턴명을 포함하는 클래스명은 독자의 이해를 돕는다.
 
 12\. **[추천]** 단순한 코드를 위해 interface 내 method 에는 `public`을 포함한 접근 제어자를 붙이지 않는다. 해당 method들에 유효한 *JavaDoc* 을 작성한다. 인터페이스 내에는 **어플리케이션 공통 상수**를 제외하고는 **어떤 변수**도 선언 하지 않는다.  
