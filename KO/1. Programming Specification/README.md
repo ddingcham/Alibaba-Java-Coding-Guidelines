@@ -83,7 +83,7 @@ constant definition: `String COMPANY = "alibaba";`
 4\. **[추천]** 상수들은 다음 다섯 가지 계층들에서 공유될 수 있다.: *다중 어플리케이션; 하나의 어플리케이션;  하위 프로젝트;  하나의 패키지; 하나의 클래스*.  
 &emsp;&emsp;1) 복수의 어플리케이션에서 공유될 경우: `client.jar`의 `constant` 디렉토리 하위 라이브러리에 보관한다.;  
 &emsp;&emsp;2) 하나의 어플리케이션에서 공유될 경우: 어플리케이션 내 `constant` 디렉토리 하위의 공유 모듈에 보관한다.;  
-&emsp;&emsp;<font color="#FF4500">반례: </font>어플리케이션 내부에서 공통으로 공유되는 상수들로써만, 명백한 변수명들이 정의되야 한다. `A.YES.equals(B.YES)`에 대하여 다음과 같은 정의는 프로덕션 환경에서 예외를 일으킬 수 있다:  *false*를 반환하지만, *true*의 반환이 기대될 수 있다.  
+&emsp;&emsp;<font color="#FF4500">반례: </font>어플리케이션 내부에서 공통으로 공유되는 상수들만, 뻔한 변수명들이 정의되야 한다. `A.YES.equals(B.YES)`에 대하여 다음과 같은 정의는 프로덕션 환경에서 예외를 일으킬 수 있다:  *false*를 반환하지만, *true*의 반환이 기대될 수 있다.  
 &emsp;&emsp;Definition in Class A: `public static final String YES = "yes";`    
 &emsp;&emsp;Definition in Class B: `public static final String YES = "y";`    
 &emsp;&emsp;3) 하위 프로젝트에서 공유될 경우: 현재 프로젝트 내 `constant` 디렉토리 하위에 보관한다.;  
