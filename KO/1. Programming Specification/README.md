@@ -71,26 +71,26 @@ constant definition: `String COMPANY = "alibaba";`
 &emsp;&emsp;&emsp;&emsp;4) POJO generally point to DO/DTO/BO/VO but cannot be used in naming as \*POJO. 
 
 ### <font color="green">Constant Conventions</font>
-1\. **[필수]** Magic values, except for predefined, are forbidden in coding.       
+1\. **[필수]** 미리 정의된 값을 제외한 **Magic values**는 사용하지 않는다.        
 > <font color="#FF4500">반례: </font> String key = <font color="blue">"Id#taobao_"</font> + tradeId;  
 
-2\. **[필수]** 'L' instead of 'l' should be used for long or Long variable because 'l' is easily to be regarded as number 1 in mistake.  
-> <font color="#FF4500">반례: </font>`Long a = 2l`, it is hard to tell whether it is number 21 or Long 2.
+2\. **[필수]** 소문자 'l'은 숫자 1과 쉽게 헷갈릴 수 있으므로 long 이나 Long 타입에 대해서는 대문자 'L'을 사용한다.  
+> <font color="#FF4500">반례: </font>`Long a = 2l`, 21 인지 Long 타입 2 인지 분간하기 어려운 케이스
 
-3\. **[추천]** Constants should be placed in different constant classes based on their functions. For example, cache related constants could be put in `CacheConsts` while configuration related constants could be kept in `ConfigConsts`.   
- > <font color="#977C00">Note: </font>It is difficult to find one constant in one big complete constant class.
+3\. **[추천]** 상수들은 그들의 기능에 기반한 각기 다른 상수 클래스에 정의되야 한다. 예를 들어, 캐시 관련 상수들은 `CacheConsts` 클래스에 위치할 수 있고, 반면 설정 관련 상수들은 `ConfigConsts`에 위치할 수 있다.   
+> <font color="#977C00">Note: </font> 모든 상수에 대한 하나의 클래스에서 특정 상수를 찾는 것은 어렵다.
 
-4\. **[추천]** Constants can be shared in the following 5 different layers: *shared in multiple applications; shared inside an application;  shared in a sub-project;  shared in a package; shared in a class*.  
-&emsp;&emsp;1) Shared in multiple applications: keep in  a library, under `constant` directory in client.jar;  
-&emsp;&emsp;2) Shared in an application: keep in shared modules within the application, under `constant` directory;  
-&emsp;&emsp;<font color="#FF4500">반례: </font>Obvious variable names should also be defined as common shared constants in an application. The following definitions caused an exception in the production environment: it returns *false*, but is expected to return *true* for `A.YES.equals(B.YES)`.  
+4\. **[추천]** 상수들은 다음 다섯 가지 계층들에서 공유될 수 있다.: *다중 어플리케이션; 하나의 어플리케이션;  하위 프로젝트;  하나의 패키지; 하나의 클래스*.  
+&emsp;&emsp;1) 복수의 어플리케이션에서 공유될 경우: `client.jar`의 `constant` 디렉토리 하위 라이브러리에 보관한다.;  
+&emsp;&emsp;2) 하나의 어플리케이션에서 공유될 경우: 어플리케이션 내 `constant` 디렉토리 하위의 공유 모듈에 보관한다.;  
+&emsp;&emsp;<font color="#FF4500">반례: </font>어플리케이션 내부에서 공통으로 공유되는 상수들로써만, 명백한 변수명들이 정의되야 한다. `A.YES.equals(B.YES)`에 대하여 다음과 같은 정의는 프로덕션 환경에서 예외를 일으킬 수 있다:  *false*를 반환하지만, *true*의 반환이 기대될 수 있다.  
 &emsp;&emsp;Definition in Class A: `public static final String YES = "yes";`    
 &emsp;&emsp;Definition in Class B: `public static final String YES = "y";`    
-&emsp;&emsp;3) Shared in a sub-project: placed under `constant` directory in the current project;  
-&emsp;&emsp;4) Shared in a package: placed under `constant` directory in current package;  
-&emsp;&emsp;5) Shared in a class: defined as 'private static final' inside class.
+&emsp;&emsp;3) 하위 프로젝트에서 공유될 경우: 현재 프로젝트 내 `constant` 디렉토리 하위에 보관한다.;  
+&emsp;&emsp;4) 단일 패키지에서 공유될 경우: 현재 패키지 내 `constant` 디렉토리 하위에 보관한다.;  
+&emsp;&emsp;5) 단일 클래스에서 공유될 경우: 클래스 내부에 'private static final' 으로 정의 한다.
 
-5\. **[추천]** Use an enumeration class if values lie in a fixed range or if the variable has attributes. The following example shows that extra information (which day it is) can be included in enumeration:  
+5\. **[추천]** 값이 고정된 범위 내에 있거나, 속성들을 가지고 있으면 열거형(Enum)을 사용한다. 다음 예는 추가 정보(무슨 요일인지)가 열거형(Enum)에 포함되는 것을 보여준다.  
  > <font color="#019858">예시: </font>public Enum{ MONDAY(1), TUESDAY(2), WEDNESDAY(3), THURSDAY(4), FRIDAY(5), SATURDAY(6), SUNDAY(7);}
 
 ### <font color="green">Formatting Style</font>
